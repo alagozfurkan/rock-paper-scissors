@@ -1,4 +1,96 @@
-function getComputerChoice() {
+let container = document.querySelector("#container");
+let buttonOne = document.createElement("button");
+let buttonTwo = document.createElement("button");
+let buttonThree = document.createElement("button");
+let whowon = document.createElement("p");
+let scorekeeper = document.createElement("p");
+let computershand = document.createElement("p");
+whowon.textContent = "Somone won!!!"
+let textcontainer = document.querySelector("#textcontainer")
+textcontainer.appendChild(whowon);
+textcontainer.appendChild(computershand);
+textcontainer.appendChild(scorekeeper);
+computershand.textContent = "Computer choosed: "
+computershand.style.fontSize = "18px";
+scorekeeper.textContent = "Here will be score";
+scorekeeper.style.fontSize ="18px";
+container.appendChild(buttonOne);
+container.appendChild(buttonTwo);
+container.appendChild(buttonThree);
+buttonOne.textContent = "Rock"
+buttonTwo.textContent = "Paper"
+buttonThree.textContent = "Scissor"
+
+    buttonOne.addEventListener("click", function() {
+        let computerChoice = getComputerChoice();
+        computershand.textContent = `Computer choosed: ${computerChoice} `;
+        if (computerChoice == "Rock") {
+            whowon.textContent = "It's a Tie!!"
+        } else if (computerChoice == "Paper") {
+            whowon.textContent = "You Lose!!! Paper beats Rock"
+            computerScore++
+        } else if (computerChoice == "Scissors") {
+            whowon.textContent = "You Win!!! Rock beats Scissors"
+            humanScore++
+        }
+
+        scorekeeper.textContent = `Computer score: ${computerScore}           Your score: ${humanScore}`;
+        if (computerScore == 3|| humanScore == 3) {
+            buttonOne.disabled = true;
+            buttonTwo.disabled = true;
+            buttonThree.disabled = true;
+        }
+    });
+    
+    buttonTwo.addEventListener("click", function() {
+        
+        let computerChoice = getComputerChoice();
+        computershand.textContent = `Computer choosed: ${computerChoice} `;
+        if (computerChoice == "Paper") {
+            whowon.textContent = "It's a Tie!!"
+        } else if (computerChoice == "Scissors") {
+            whowon.textContent = "You Lose!!! Scissors beats Paper"
+            computerScore++
+        } else if (computerChoice == "Rock") {
+            whowon.textContent = "You Win!!! Paper beats Rock"
+            humanScore++
+        }
+
+        scorekeeper.textContent = `Computer score: ${computerScore}           Your score: ${humanScore}`;
+        if (computerScore == 3|| humanScore == 3) {
+            buttonOne.disabled = true;
+            buttonTwo.disabled = true;
+            buttonThree.disabled = true;
+        }
+    });
+    
+    buttonThree.addEventListener("click", function() {
+        let computerChoice = getComputerChoice();
+        computershand.textContent = `Computer choosed: ${computerChoice} `;
+        if (computerChoice == "Scissors") {
+            whowon.textContent = "It's a Tie!!"
+        } else if (computerChoice == "Rock") {
+            whowon.textContent = "You Lose!!! Rock beats Scissors"
+            computerScore++
+        } else if (computerChoice == "Paper") {
+            whowon.textContent = "You Win!!! Scissors beats Paper"
+            humanScore++
+        }
+
+        scorekeeper.textContent = `Computer score: ${computerScore}           Your score: ${humanScore}`;
+        if (computerScore == 3|| humanScore == 3) {
+            buttonOne.disabled = true;
+            buttonTwo.disabled = true;
+            buttonThree.disabled = true;
+        }
+    });
+
+
+
+
+
+
+ function getComputerChoice() {
 
     let getValue = Math.random() * 3;
 
@@ -13,16 +105,11 @@ function getComputerChoice() {
 
 }
 
-function getHumanChoice() {
-     let humanAnswer =  prompt("Rock, Paper or Scissors?");
-     return humanAnswer
-}
-
 let humanScore = 0;
 let computerScore = 0;
 
 
- function playRound(humanChoice, computerChoice) {
+ /*function playRound(humanChoice, computerChoice) {
 
     if (humanChoice == "Rock") {
         if (computerChoice == "Rock") {
@@ -64,9 +151,9 @@ let computerScore = 0;
     }
 
     
-}
+} */
 
-function playGame() {
+/*function playGame() {
     let round1 = playRound(humanSelection1, computerSelection);
     console.log(humanScore);
     console.log(computerScore);
@@ -103,4 +190,4 @@ const humanSelection4 = getHumanChoice();
 const humanSelection5 = getHumanChoice();
 
 const computerSelection = getComputerChoice();
-playGame();
+playGame(); */
